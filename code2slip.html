@@ -172,16 +172,20 @@ window.downloadPDF = idx => {
     doc.text("DLR Facility Management", 170, 45);
 
     doc.setFontSize(10);
-    doc.setFont("helvetica", "normal");
+doc.setFont("helvetica", "normal");
 
-    let address = "No.101, 1st floor, KPR Residency, SV Balraj Reddy Colony, Behind Central Board, Bangalore - 560068";
+let address = "No.101, 1st floor, KPR Residency, SV Balraj Reddy Colony, Behind Central Board, Bangalore - 560068";
 
-// Auto wrap text within 100 units width
-    let wrappedAddress = doc.splitTextToSize(address, 100);
+// Split into two roughly equal halves
+let halfIndex = Math.ceil(address.length / 2);
+let line1 = address.substring(0, halfIndex);
+let line2 = address.substring(halfIndex);
 
-// Print wrapped text (each line automatically placed under the previous one)
-   doc.text(wrappedAddress, 20, 65);  // x=20 (left margin), y=65 (top position)
+// Print first line at (x, y)
+doc.text(line1.trim(), 20, 65);
 
+// Print second line at SAME x, but shifted down (y+5)
+doc.text(line2.trim(), 20, 70);
 
     // Salary Slip Title
     doc.setFontSize(12);
@@ -321,6 +325,7 @@ clearImportBtn.addEventListener('click',hideImportActions);
 </script>
 </body>
 </html>
+
 
 
 
