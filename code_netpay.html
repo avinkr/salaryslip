@@ -221,7 +221,7 @@ document.getElementById("file-input").addEventListener("change", e=>{
         esino:row["ESI No"]||"",
         days:row["No of Days"]||"",
         lop:row["LOP"]||"",
-        doj:row["DOJ"]||"",
+        doj:row["DOJ"]||row["DOJ"]||"",
         uan:row["UAN"]||"",
         pan:row["PAN"]||"",
         bank:row["Bank"]||"",
@@ -262,3 +262,4 @@ clearImportBtn.addEventListener('click',hideImportActions);
 </script>
 </body>
 </html>
+
